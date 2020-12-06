@@ -1681,10 +1681,10 @@ MonoBehaviour:
   - {fileID: 4518289228120221884}
   - {fileID: 4518289227632970320}
   - {fileID: 4518289228875307829}
-  body: {fileID: 0}
+  body: {fileID: 409839935}
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
 --- !u!1 &484027154
 GameObject:
   m_ObjectHideFlags: 0
