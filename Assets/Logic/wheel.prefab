@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4518289228559448697}
   - component: {fileID: 4518289228559448703}
   m_Layer: 0
-  m_Name: wur
+  m_Name: wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4518289228559448678}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f4911375557b44b47814817b26cb9120, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
