@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraTrack : MonoBehaviour {
     public Transform target;
-    void Update() {
-        transform.position = Vector3.Lerp(transform.position, target.position, .1f);
+    void LateUpdate() {
+        transform.position = Vector3.Slerp(transform.position, target.position, .1f);
     }
 }
