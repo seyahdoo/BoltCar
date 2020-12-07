@@ -5,7 +5,7 @@ public class Car : MonoBehaviour {
     public Rigidbody body;
     public RaycastHit[] hits = new RaycastHit[10];
     public LayerMask mask;
-    private float maxSuspensionDistance = 1f;
+    private float maxSuspensionDistance = .5f;
     
     private void FixedUpdate() {
         for (var i = 0; i < wheels.Length; i++) {
@@ -13,23 +13,18 @@ public class Car : MonoBehaviour {
             var hitCount = Physics.RaycastNonAlloc(wheel.position, -wheel.up, hits, 10, mask);
             if (hitCount > 0) {
                 var distance = hits[0].distance;
-                if (distance > maxSuspensionDistance) {
-                    
+                if (distance < maxSuspensionDistance) {
+                    body.AddForceAtPosition(Input.GetAxis("Vertical") * 5f * wheel.forward, wheel.position, ForceMode.Force);
+                    var force = wheel.right * (Vector3.Dot(wheel.right, body.velocity) * -4);
+                    body.AddForceAtPosition(force, wheel.position, ForceMode.Force);
                 }
-                
-                body.AddForceAtPosition(Input.GetAxis("Vertical") * 5f * wheel.forward, wheel.position, ForceMode.Force);
-                var force = wheel.right * (Vector3.Dot(wheel.right, body.velocity) * -4);
-                body.AddForceAtPosition(force, wheel.position, ForceMode.Force);
             }
-            
-            
-            
         }
     }
     private void Update() {
         for (var i = 0; i < 2; i++) {
             var wheel = wheels[i];
-            wheel.eulerAngles = Input.GetAxis("Horizontal") * 45f * Vector3.up;
+            wheel.localEulerAngles = Input.GetAxis("Horizontal") * 45f * Vector3.up;
         }
     }
 }
